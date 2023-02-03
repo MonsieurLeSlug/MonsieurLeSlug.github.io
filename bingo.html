@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="./style.css">
+<script src="./script.js"></script>
+<script src="./html2canvas.min.js"></script>
+
+<div id="container">
+
+  <img src="./f1_logo_red.svg" alt="F1 logo" id="logo">
+
+  <h1 id="heading">F1 Bingo</h1>
+
+  <table id="sheet">
+    <td id="edit">Edit</td>
+    <tbody id="sheet_body">
+      <tr>
+        <td id="A1" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="A2" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="A3" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="A4" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="A5" class="square"><img class="img"/><span class="text"></span></td>
+      </tr>
+      <tr>
+        <td id="B1" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="B2" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="B3" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="B4" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="B5" class="square"><img class="img"/><span class="text"></span></td>
+      </tr>
+      <tr>
+        <td id="C1" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="C2" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="C3" class="square"><img class="img"/><span class="text">Free space</span></td>
+        <td id="C4" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="C5" class="square"><img class="img"/><span class="text"></span></td>
+      </tr>
+      <tr>
+        <td id="D1" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="D2" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="D3" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="D4" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="D5" class="square"><img class="img"/><span class="text"></span></td>
+      </tr>
+      <tr>
+        <td id="E1" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="E2" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="E3" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="E4" class="square"><img class="img"/><span class="text"></span></td>
+        <td id="E5" class="square"><img class="img"/><span class="text"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="antitamper" class="hide"></div>
+  <div id="editform" class="hide">
+    <div class="square"><img id="editimg" class="img"/><span id="edittext" class="text"></span></div>
+    <div class="editarea">
+      <label for="inputtext">Text</label>
+      <input type="text" id="inputtext" placeholder="Latifi crashes">
+      <label for="inputurl">Image URL</label>
+      <input type="text" id="inputurl" placeholder="https://i.imgur.com/TxvpVpv.png">
+      <div class="edit-buttons">
+        <button id="editcancel" class="btn-cancel">Cancel</button>
+        <button id="editsave" class="btn-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+</div>
