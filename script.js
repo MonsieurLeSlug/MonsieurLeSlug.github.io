@@ -78,7 +78,7 @@ function switchCorrect(sqr) {
     ? JSON.parse(sqrs)
     : {};
 
-  if (sqrs[id][correct]) {
+  if (sqrs[id] && sqrs[id][correct]) {
     sqrs[id].correct = correct;
   } else {
     sqrs[id] = {'img': img, 'text': text, 'correct': correct};
