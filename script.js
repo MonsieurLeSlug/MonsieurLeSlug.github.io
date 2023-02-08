@@ -22,8 +22,8 @@ function populateEditForm(sqr) {
   inputText = document.getElementById('inputtext');
   inputURL = document.getElementById('inputurl');
 
-  antiTamper.classList.remove('hide');
-  editForm.classList.remove('hide');
+  antiTamper.classList.add('unhide');
+  editForm.classList.add('unhide');
   editImg.src = sqr.getElementsByClassName('img')[0].src;
   inputURL.value = sqr.getElementsByClassName('img')[0].src;
   editText.innerText = sqr.getElementsByClassName('text')[0].innerText;
@@ -44,6 +44,7 @@ function saveEditForm(sqr) {
 }
 
 function saveSquare(id, img, text) {
+  if (img.startsWith('blob:')) return;
   img = encodeURIComponent(img);
   text = encodeURIComponent(text);
   sqrs = localStorage.getItem('F1Bingo');
@@ -131,6 +132,18 @@ function loadFromStorage() {
   }
 }
 
+function convertToBlob(img) {
+  if (img.src.startsWith('file://')) return;
+   fetch(img.src)
+   .then(function (response) {
+      return response.blob();
+   })
+   .then(function (blob) {
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      img.src = url;
+   });
+};
+
 docReady(function() {
   loadFromStorage();
 
@@ -153,6 +166,28 @@ docReady(function() {
 
   document.getElementById('edit').onclick = function() {
     document.getElementById('sheet').classList.toggle('edit');
+    document.getElementById('edit').classList.toggle('edit');
+  }
+
+  document.getElementById('export').onclick = function() {
+    sqrs = localStorage.getItem('F1Bingo');
+    if (sqrs) {
+      navigator.clipboard.writeText(sqrs);
+      alert('Save data copied to clipboard');
+    } else alert('Could not find save data');
+  }
+
+  document.getElementById('import').onclick = function() {
+    document.getElementById('importbox').classList.add('unhide');
+    document.getElementById('antitamper').classList.add('unhide');
+  }
+
+  document.getElementById('closeall').onclick = function() {
+    let elems = document.getElementsByClassName('unhide');
+    let arr = [];
+    for (let elem of elems) arr.push(elem);
+    for (let elem of arr) elem.classList.remove('unhide'); // Don't ask
+    if (editing = document.getElementsByClassName('editing')[0]) editing.classList.remove('editing');
   }
 
   const editImgEl = document.getElementById('inputurl');
@@ -162,20 +197,42 @@ docReady(function() {
   editTextEl.addEventListener('input', changeEditText, false);
 
   document.getElementById('editcancel').onclick = function() {
-    document.getElementById('antitamper').classList.add('hide');
-    document.getElementById('editform').classList.add('hide');
+    document.getElementById('antitamper').classList.remove('unhide');
+    document.getElementById('editform').classList.remove('unhide');
     document.getElementsByClassName('editing')[0].classList.remove('editing');
   }
 
   document.getElementById('editsave').onclick = function() {
-    document.getElementById('antitamper').classList.add('hide');
-    document.getElementById('editform').classList.add('hide');
+    document.getElementById('antitamper').classList.remove('unhide');
+    document.getElementById('editform').classList.remove('unhide');
     saveEditForm(document.getElementsByClassName('editing')[0]);
   }
 
-  document.getElementById('logo').onclick = function() {
-    html2canvas(document.querySelector("#sheet")).then(canvas => {
-      document.body.appendChild(canvas)
-    });
+  document.getElementById('importcancel').onclick = function() {
+    document.getElementById('antitamper').classList.remove('unhide');
+    document.getElementById('importbox').classList.remove('unhide');
+  }
+
+  document.getElementById('importsave').onclick = function() {
+    savedata = document.getElementById('importtext').value;
+    localStorage.setItem('F1Bingo', savedata);
+    document.getElementById('antitamper').classList.remove('unhide');
+    document.getElementById('importbox').classList.remove('unhide');
+    alert('Imported data');
+    loadFromStorage();
+  }
+
+  document.getElementById('screenshot').onclick = function() {
+    let elems = document.getElementById('sheet').getElementsByClassName('img');
+    for (let elem of elems) convertToBlob(elem);
+
+    setTimeout(function() {
+      html2canvas(document.querySelector('#sheet'), {backgroundColor: 'null'}).then(canvas => {
+        document.getElementById('screenshotbox').innerHTML = '';
+        document.getElementById('screenshotbox').appendChild(canvas);
+        document.getElementById('antitamper').classList.add('unhide');
+        document.getElementById('screenshotbox').classList.add('unhide');
+      });
+    }, 100); // Wait for all images to be converted
   }
 });
