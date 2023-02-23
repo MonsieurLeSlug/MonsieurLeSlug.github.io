@@ -8,7 +8,7 @@ body {
   background: #15151D;
   color: #FFF;
   text-align: center;
-  margin: 40px;
+  margin: 40px 0;
 }
 #logo {
   display: block;
@@ -28,6 +28,7 @@ table {
   padding: 10px;
   position: relative;
   background: #15151d;
+  margin: 0 120px;
 }
 table tr {
   display: flex;
@@ -216,12 +217,12 @@ button {
 }
 .sheetContainer {
   display: inline-flex;
-  margin-left: 120px;
 }
 .sheetButtons {
   display: flex;
   flex-direction: column;
   width: 120px;
+  margin: 0 0 -120px;
 }
 .sheetButtons button {
   background: transparent;
@@ -261,4 +262,17 @@ label {
 canvas {
   max-width: 500px;
   max-height: 500px;
+}
+@media screen and (max-width: 1079px) {
+  table {
+    margin: 0;
+  }
+  .sheetContainer {
+    flex-direction: column;
+  }
+  .sheetButtons {
+    margin: auto;
+    flex-direction: row;
+    width: auto;
+  }
 }
