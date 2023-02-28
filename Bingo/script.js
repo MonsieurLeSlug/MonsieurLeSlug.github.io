@@ -109,7 +109,7 @@ function changeInputURL() {
   if (this.value && this.value != '') {
     document.getElementById('editimg').src = this.value;
   } else {
-    document.getElementById('editimg').src = '../img/goatifi.png';
+    document.getElementById('editimg').src = './img/goatifi.png';
   }
 }
 
@@ -121,7 +121,7 @@ function loadFromStorage() {
   console.log(sqrs);
   for (const id of Object.keys(sqrs)) {
     data = sqrs[id];
-    img = (data.img) ? decodeURIComponent(data.img) : '../img/goatifi.png';
+    img = (data.img) ? decodeURIComponent(data.img) : './img/goatifi.png';
     text = (data.text) ? decodeURIComponent(data.text) : '';
     correct = (data.correct) ? decodeURIComponent(data.correct) : '';
     if (sqr = document.getElementById(id)) {
@@ -149,7 +149,7 @@ docReady(function() {
 
   let imgs = document.getElementsByClassName('img');
   for (let img of imgs) {
-    if (img.src == '') img.src = '../img/goatifi.png';
+    if (img.src == '') img.src = './img/goatifi.png';
   }
 
   var sqrs = document.getElementsByClassName('square');
