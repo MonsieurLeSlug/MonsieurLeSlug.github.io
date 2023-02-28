@@ -8,19 +8,22 @@ html {
   background: #15151D;
   color: #FFF;
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 10px;
 }
 body {
   margin: 0;
 }
 #logo {
   display: block;
-  width: 200px;
-  margin-left: calc(50% - 100px);
+  position: absolute;
+  z-index: -1;
+  opacity: .5;
+  width: 250px;
+  margin-left: calc(50% - 125px);
+  margin-top: -5px;
 }
-h1 {
-  letter-spacing: 1;
-  margin-top: .33em;
+#heading {
+  margin: 0 0 40px;
 }
 table {
   display: inline-table;
@@ -37,7 +40,6 @@ table tr {
   display: flex;
   width: 800px;
   max-width: calc(100vw - 100px);
-  height: 20%;
   align-items: stretch;
 }
 .square {
@@ -52,6 +54,13 @@ table tr {
   cursor: pointer;
   position: relative;
   display: flex;
+  height: auto;
+  flex: 1 0;
+}
+.square:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
 }
 .square:hover {
   transform: scale(1.1);
@@ -115,7 +124,7 @@ table tr {
   left: 10%;
   max-height: 80%;
   text-align: center;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: bold;
   line-height: 1;
   text-shadow: 0 0 5px #000, -1px -1px #15151d, -1px 0px #15151d, -1px 1px #15151d, 0px -1px #15151d, 0px 1px #15151d, 1px -1px #15151d, 1px 0px #15151d, 1px 1px #15151d;
