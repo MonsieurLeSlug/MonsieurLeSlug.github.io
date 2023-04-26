@@ -36,6 +36,19 @@ table {
   background: #15151d;
   margin: 0 120px;
 }
+@keyframes glowing {
+  0% { box-shadow: 0 0 10px lime; }
+  50% { box-shadow: 0 0 20px lime; }
+  100% { box-shadow: 0 0 10px lime; }
+}
+table.bingo {
+  border-color: lime;
+  background-color: #153d1d;
+}
+table.bingo:not(.noglow) {
+  animation: glowing 2000ms infinite;
+  -webkit-animation: glowing 2000ms infinite;
+}
 table tr {
   display: flex;
   width: 800px;
@@ -56,6 +69,7 @@ table tr {
   display: flex;
   height: auto;
   flex: 1 0;
+  background-color: #15151d;
 }
 .square:before {
   content: '';

@@ -88,6 +88,39 @@ function switchCorrect(sqr) {
   sqrs = JSON.stringify(sqrs);
 
   localStorage.setItem('F1Bingo', sqrs);
+  checkForBingo();
+}
+
+function checkForBingo() {
+  sheet = document.getElementById('sheet');
+  list = sheet.getElementsByClassName('correct');
+  squareIDs = [];
+  for (let square of list) squareIDs.push(square.id);
+
+  console.log(squareIDs);
+  const solutions = [
+    ['A1','A2','A3','A4','A5'],
+    ['B1','B2','B3','B4','B5'],
+    ['C1','C2','C3','C4','C5'],
+    ['D1','D2','D3','D4','D5'],
+    ['E1','E2','E3','E4','E5'],
+
+    ['A1','B1','C1','D1','E1'],
+    ['A2','B2','C2','D2','E2'],
+    ['A3','B3','C3','D3','E3'],
+    ['A4','B4','C4','D4','E4'],
+    ['A5','B5','C5','D5','E5'],
+
+    ['A1','B2','C3','D4','E5'],
+    ['A5','B4','C3','D2','E1']
+  ];
+  sheet.classList.remove('bingo');
+  solutions.forEach( function(solution) {
+    if(solution.every(r => squareIDs.includes(r))) {
+      console.log('Bingo!');
+      sheet.classList.add('bingo');
+    }
+  });
 }
 
 function imageUpload() {
@@ -131,6 +164,7 @@ function loadFromStorage() {
       if (correct && correct != '') sqr.classList.add(correct);
     }
   }
+  checkForBingo();
 }
 
 function convertToBlob(img) {
@@ -224,6 +258,7 @@ docReady(function() {
   }
 
   document.getElementById('screenshot').onclick = function() {
+    document.getElementById('sheet').classList.add('noglow');
     let elems = document.getElementById('sheet').getElementsByClassName('img');
     for (let elem of elems) convertToBlob(elem);
 
@@ -237,6 +272,7 @@ docReady(function() {
       }).then(canvas => {
         document.getElementById('screenshotbox').innerHTML = '';
         document.getElementById('screenshotbox').appendChild(canvas);
+        document.getElementById('sheet').classList.remove('noglow');
       });
     }, 1000); // Wait for all images to be converted
   }
