@@ -227,13 +227,19 @@ docReady(function() {
     let elems = document.getElementById('sheet').getElementsByClassName('img');
     for (let elem of elems) convertToBlob(elem);
 
+    document.getElementById('screenshotbox').innerHTML = '<span class="loadingnotice">Importing images...</span>';
+    document.getElementById('antitamper').classList.add('unhide');
+    document.getElementById('screenshotbox').classList.add('unhide');
+
     setTimeout(function() {
-      html2canvas(document.querySelector('#sheet'), {backgroundColor: 'null'}).then(canvas => {
+      html2canvas(document.querySelector('#sheet'), {
+        backgroundColor: 'null',
+        allowTaint: true,
+        useCORS: true
+      }).then(canvas => {
         document.getElementById('screenshotbox').innerHTML = '';
         document.getElementById('screenshotbox').appendChild(canvas);
-        document.getElementById('antitamper').classList.add('unhide');
-        document.getElementById('screenshotbox').classList.add('unhide');
       });
-    }, 100); // Wait for all images to be converted
+    }, 1000); // Wait for all images to be converted
   }
 });

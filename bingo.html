@@ -8,6 +8,21 @@
     <link rel="icon" type="image/x-icon" href="./Bingo/favicon.png">
     <script src="./Bingo/script.js"></script>
     <script src="./js/html2canvas.min.js"></script>
+
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+      <CORSRule>
+          <AllowedOrigin>*</AllowedOrigin>
+          <AllowedMethod>GET</AllowedMethod>
+          <MaxAgeSeconds>3000</MaxAgeSeconds>
+          <AllowedHeader>*</AllowedHeader>
+      </CORSRule>
+      <CORSRule>
+          <AllowedOrigin>*</AllowedOrigin>
+          <AllowedMethod>PUT</AllowedMethod>
+          <MaxAgeSeconds>3000</MaxAgeSeconds>
+          <AllowedHeader>*</AllowedHeader>
+      </CORSRule>
+    </CORSConfiguration>
   </head>
 
   <body>
