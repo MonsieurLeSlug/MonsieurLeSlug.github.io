@@ -67,7 +67,8 @@ function saveSquare(id, img, text) {
 function switchCorrect(sqr) {
   id = sqr.id;
   cl = sqr.classList;
-  if (cl.contains('correct')) { cl.remove('correct'); cl.add('false'); correct = 'false'; }
+  if (cl.contains('correct')) { cl.remove('correct'); cl.add('maybe'); correct = 'maybe'; }
+  else if (cl.contains('maybe')) { cl.remove('maybe'); cl.add('false'); correct = 'false'; }
   else if (cl.contains('false')) { cl.remove('false'); correct = ''; }
   else { cl.add('correct'); correct = 'correct'; }
 
