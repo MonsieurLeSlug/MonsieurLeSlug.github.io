@@ -233,9 +233,7 @@ docReady(function() {
 
     setTimeout(function() {
       html2canvas(document.querySelector('#sheet'), {
-        backgroundColor: 'null',
-        allowTaint: true,
-        useCORS: true
+        backgroundColor: 'null'
       }).then(canvas => {
         document.getElementById('screenshotbox').innerHTML = '';
         document.getElementById('screenshotbox').appendChild(canvas);
