@@ -193,6 +193,9 @@ function resetGrid() {
     text.style.fontSize = '';
   }
   document.getElementById('C3').getElementsByClassName('text')[0].innerText = 'Free space';
+  let sqrs = document.getElementsByClassName('square');
+  for (let sqr of sqrs) sqr.classList = ['square'];
+  checkForBingo();
 }
 
 function convertToBlob(img) {
