@@ -235,7 +235,8 @@ table tr {
 .hide:not(.unhide) {
   display: none !important;
 }
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
   width: 250px;
   height: 25px;
   padding: 0 5px;
@@ -280,7 +281,7 @@ button {
   color: #15151d;
 }
 label {
-  width: 80px;
+  width: 90px;
   display: inline-block;
   text-align: left;
   height: 25px;

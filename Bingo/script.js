@@ -21,6 +21,9 @@ function populateEditForm(sqr) {
   editText = document.getElementById('edittext');
   inputText = document.getElementById('inputtext');
   inputURL = document.getElementById('inputurl');
+  inputSize = document.getElementById('inputsize');
+  fontSize = sqr.getElementsByClassName('text')[0].style.fontSize || '21px';
+  console.log(fontSize);
 
   antiTamper.classList.add('unhide');
   editForm.classList.add('unhide');
@@ -28,6 +31,8 @@ function populateEditForm(sqr) {
   inputURL.value = sqr.getElementsByClassName('img')[0].src;
   editText.innerText = sqr.getElementsByClassName('text')[0].innerText;
   inputText.value = sqr.getElementsByClassName('text')[0].innerText;
+  editText.style.fontSize = `${fontSize}`;
+  inputSize.value = `${fontSize.slice(0,2)}`;
 }
 
 function saveEditForm(sqr) {
@@ -37,16 +42,20 @@ function saveEditForm(sqr) {
   id = sqr.id;
   newImg = editImg.src;
   newText = editText.innerText;
+  newSize = editText.style.fontSize;
 
   sqr.getElementsByClassName('img')[0].src = newImg;
   sqr.getElementsByClassName('text')[0].innerText = newText;
-  saveSquare(id, newImg, newText);
+  sqr.getElementsByClassName('text')[0].style.fontSize = newSize;
+  saveSquare(id, newImg, newText, newSize);
 }
 
-function saveSquare(id, img, text) {
+function saveSquare(id, img, text, textSize) {
   if (img.startsWith('blob:')) return;
   img = encodeURIComponent(img);
   text = encodeURIComponent(text);
+  if (!textSize) textSize = '21px';
+  textSize = encodeURIComponent(textSize);
   sqrs = localStorage.getItem('F1Bingo');
 
   sqrs = (sqrs)
@@ -56,8 +65,9 @@ function saveSquare(id, img, text) {
   if (sqrs[id]) {
     sqrs[id].img = img;
     sqrs[id].text = text;
+    sqrs[id].textSize = textSize;
   } else {
-    sqrs[id] = {'img': img, 'text': text};
+    sqrs[id] = {'img': img, 'text': text, 'textSize': textSize};
   }
   sqrs = JSON.stringify(sqrs);
 
@@ -139,6 +149,10 @@ function changeEditText() {
   document.getElementById('edittext').innerText = this.value;
 }
 
+function changeTextSize() {
+  document.getElementById('edittext').style.fontSize = `${this.value}px`;
+}
+
 function changeInputURL() {
   if (this.value && this.value != '') {
     document.getElementById('editimg').src = this.value;
@@ -157,10 +171,12 @@ function loadFromStorage() {
     data = sqrs[id];
     img = (data.img) ? decodeURIComponent(data.img) : './img/goatifi.png';
     text = (data.text) ? decodeURIComponent(data.text) : '';
+    textSize = (data.textSize) ? decodeURIComponent(data.textSize) : '21px';
     correct = (data.correct) ? decodeURIComponent(data.correct) : '';
     if (sqr = document.getElementById(id)) {
       sqr.getElementsByClassName('img')[0].src = img;
       sqr.getElementsByClassName('text')[0].innerText = text;
+      sqr.getElementsByClassName('text')[0].style.fontSize = textSize;
       if (correct && correct != '') sqr.classList.add(correct);
     }
   }
@@ -230,6 +246,9 @@ docReady(function() {
 
   const editTextEl = document.getElementById('inputtext');
   editTextEl.addEventListener('input', changeEditText, false);
+
+  const editTextSizeEl = document.getElementById('inputsize');
+  editTextSizeEl.addEventListener('change', changeTextSize, false);
 
   document.getElementById('editcancel').onclick = function() {
     document.getElementById('antitamper').classList.remove('unhide');
