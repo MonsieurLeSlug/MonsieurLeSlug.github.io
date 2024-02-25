@@ -232,6 +232,28 @@ table tr {
   display: flex;
   justify-content: right;
 }
+#resetbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #15151d;
+  border: 1px solid #fff;
+  word-break: break-all;
+  box-shadow: 0 0 100px #000;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+#resetbox .reset-warning {
+  color: red;
+  font-size: 22px;
+  margin: 0 0 -0.2em;
+  line-height: 1;
+}
 .hide:not(.unhide) {
   display: none !important;
 }
@@ -272,9 +294,17 @@ button {
   margin: 5px 10px;
   font-size: 14px;
 }
-.sheetButtons button:hover {
+button:hover {
   background: #fff;
   color: #15151d;
+}
+.btn-green {
+  background: #008800;
+  color: #fff;
+}
+.btn-red {
+  background: #bb0000;
+  color: #fff;
 }
 #edit.edit {
   background: #fff;

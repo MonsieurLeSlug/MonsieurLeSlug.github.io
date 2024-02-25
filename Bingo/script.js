@@ -23,7 +23,6 @@ function populateEditForm(sqr) {
   inputURL = document.getElementById('inputurl');
   inputSize = document.getElementById('inputsize');
   fontSize = sqr.getElementsByClassName('text')[0].style.fontSize || '21px';
-  console.log(fontSize);
 
   antiTamper.classList.add('unhide');
   editForm.classList.add('unhide');
@@ -183,6 +182,19 @@ function loadFromStorage() {
   checkForBingo();
 }
 
+function resetGrid() {
+  localStorage.removeItem('F1Bingo');
+  let sheet = document.getElementById('sheet_body');
+  let imgs = sheet.getElementsByClassName('img');
+  for (let img of imgs) img.src = './img/goatifi.png';
+  let texts = sheet.getElementsByClassName('text');
+  for (let text of texts) {
+    text.innerText = '';
+    text.style.fontSize = '';
+  }
+  document.getElementById('C3').getElementsByClassName('text')[0].innerText = 'Free space';
+}
+
 function convertToBlob(img) {
   if (img.src.startsWith('file://')) return;
    fetch(img.src)
@@ -295,5 +307,19 @@ docReady(function() {
         document.getElementById('sheet').classList.remove('noglow');
       });
     }, 1000); // Wait for all images to be converted
+  }
+
+  document.getElementById('reset').onclick = function() {
+    document.getElementById('resetbox').classList.add('unhide');
+    document.getElementById('antitamper').classList.add('unhide');
+  }
+  document.getElementById('resetcancel').onclick = function() {
+    document.getElementById('resetbox').classList.remove('unhide');
+    document.getElementById('antitamper').classList.remove('unhide');
+  }
+  document.getElementById('resetconfirm').onclick = function() {
+    document.getElementById('resetbox').classList.remove('unhide');
+    document.getElementById('antitamper').classList.remove('unhide');
+    resetGrid();
   }
 });

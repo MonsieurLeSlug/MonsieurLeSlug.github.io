@@ -63,6 +63,7 @@
           <button id="export">Export</button>
           <button id="import">Import</button>
           <button id="screenshot">Screenshot</button>
+          <button id="reset">Reset</button>
         </div>
       </div>
 
@@ -86,7 +87,7 @@
           </div>
           <div class="edit-buttons">
             <button id="editcancel" class="btn-cancel">Cancel</button>
-            <button id="editsave" class="btn-save">Save</button>
+            <button id="editsave" class="btn-green">Save</button>
           </div>
         </div>
       </div>
@@ -97,10 +98,18 @@
         </div>
         <div class="edit-buttons">
           <button id="importcancel" class="btn-cancel">Cancel</button>
-          <button id="importsave" class="btn-save">Import</button>
+          <button id="importsave" class="btn-green">Import</button>
         </div>
       </div>
       <div id="screenshotbox" class="hide"></div>
+      <div id="resetbox" class="hide">
+        <p class="reset-warning">WARNING: This will clear the entire grid.</p>
+        <p>It is recommended to export to a safe place before resetting. Are you sure you want to do this?</p>
+        <div class="edit-buttons">
+          <button id="resetcancel" class="btn-cancel">Cancel</button>
+          <button id="resetconfirm" class="btn-red">Reset</button>
+        </div>
+      </div>
 
     </div>
   </body>
