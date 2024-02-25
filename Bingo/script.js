@@ -259,12 +259,15 @@ docReady(function() {
 
   const editImgEl = document.getElementById('inputurl');
   editImgEl.addEventListener('input', changeInputURL, false);
+  editImgEl.addEventListener('focus', () => { editImgEl.select(); });
+  editImgEl.addEventListener('mouseup', (e) => { e.preventDefault(); });
 
   const editTextEl = document.getElementById('inputtext');
   editTextEl.addEventListener('input', changeEditText, false);
 
   const editTextSizeEl = document.getElementById('inputsize');
   editTextSizeEl.addEventListener('change', changeTextSize, false);
+
 
   document.getElementById('editcancel').onclick = function() {
     document.getElementById('antitamper').classList.remove('unhide');
