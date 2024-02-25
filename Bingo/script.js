@@ -218,6 +218,7 @@ docReady(function() {
   document.getElementById('edit').onclick = function() {
     document.getElementById('sheet').classList.toggle('edit');
     document.getElementById('edit').classList.toggle('edit');
+    document.getElementById('edit').innerText = (document.getElementById('sheet').classList.contains('edit')) ? 'Done' : 'Edit';
   }
 
   document.getElementById('export').onclick = function() {
