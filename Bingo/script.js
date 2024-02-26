@@ -198,6 +198,45 @@ function resetGrid() {
   checkForBingo();
 }
 
+function shuffleBoard() {
+  let sheet = document.getElementById('sheet_body');
+  let sqrs = sheet.getElementsByClassName('square');
+
+  // Only allow if none ticked
+  for (let sqr of sqrs) {
+    if (sqr.classList.contains('correct') || sqr.classList.contains('maybe') || sqr.classList.contains('false')) {
+      alert('Shuffle only works on a blank (un-ticked) board');
+      return;
+    }
+  }
+
+  let newSqrs = [];
+  newSqrs['C3'] = sqrs['C3'].innerHTML;
+  let sqrIds = ['A1', 'A2', 'A3', 'A4', 'A5', 'B1', 'B2', 'B3', 'B4', 'B5', 'C1', 'C2', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'E1', 'E2', 'E3', 'E4', 'E5'];
+
+  // Shuffle sqrIds
+  let currentIndex = sqrIds.length, randomIndex;
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [sqrIds[currentIndex], sqrIds[randomIndex]] = [sqrIds[randomIndex], sqrIds[currentIndex]];
+  }
+
+  // Populate newSqrs
+  for (let sqr of sqrs) {
+    if (sqr.id != 'C3') {
+      newSqrs[sqrIds[0]] = sqr.innerHTML;
+      sqrIds.shift();
+    }
+  }
+
+  // Refill board
+  for (let sqr of sqrs) {
+    sqr.innerHTML = newSqrs[sqr.id];
+    saveSquare(sqr.id, sqr.getElementsByClassName('img')[0].src, sqr.getElementsByClassName('text')[0].innerText, sqr.getElementsByClassName('text')[0].style.fontSize || '21px');
+  }
+}
+
 function convertToBlob(img) {
   if (img.src.startsWith('file://')) return;
    fetch(img.src)
@@ -234,6 +273,10 @@ docReady(function() {
     document.getElementById('sheet').classList.toggle('edit');
     document.getElementById('edit').classList.toggle('edit');
     document.getElementById('edit').innerText = (document.getElementById('sheet').classList.contains('edit')) ? 'Done' : 'Edit';
+  }
+
+  document.getElementById('shuffle').onclick = function() {
+    shuffleBoard();
   }
 
   document.getElementById('export').onclick = function() {
