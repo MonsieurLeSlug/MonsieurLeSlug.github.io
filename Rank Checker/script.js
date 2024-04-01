@@ -58,7 +58,7 @@ function calculateRankTotal() {
   }
 
   if (total > 0) {
-    document.getElementById('ri_total').innerText = `Total: ${total}pts`;
+    document.getElementById('ri_total').innerText = `Total: ${total}/100pts`;
   } else {
     document.getElementById('ri_total').innerText = '';
   }
