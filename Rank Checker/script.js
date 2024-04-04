@@ -59,8 +59,10 @@ function calculateRankTotal() {
 
   if (total > 0) {
     document.getElementById('ri_total').innerText = `Total: ${total}/100pts`;
+    document.getElementById('rank_info').classList.add('bordered');
   } else {
     document.getElementById('ri_total').innerText = '';
+    document.getElementById('rank_info').classList.remove('bordered');
   }
 
   if (total > 100) {

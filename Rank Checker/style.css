@@ -13,15 +13,6 @@ html {
 body {
   margin: 0;
 }
-#logo {
-  display: block;
-  position: absolute;
-  z-index: -1;
-  opacity: .5;
-  width: 250px;
-  margin-left: calc(50% - 125px);
-  margin-top: -5px;
-}
 #heading {
   margin: 0 0 20px;
 }
@@ -63,7 +54,7 @@ table.failed:not(.noglow) {
 table tr {
   display: flex;
   width: 470px;
-  max-width: calc(100vw - 100px);
+  max-width: calc(100vw - 42px);
   align-items: stretch;
   margin-top: 5px;
 }
@@ -122,22 +113,6 @@ table tr {
   border: solid transparent;
   border-width: 0 50px 0 50px;
 }
-.square.false:hover:after {
-  opacity: .67;
-}
-.edit .square {
-  border: 1px solid #fff;
-  margin: 4px;
-  filter: saturate(.5);
-  -webkit-filter: saturate(.5);
-}
-.edit .square:hover {
-  filter: none;
-  -webkit-filter: none;
-}
-.edit .square:after {
-  display: none;
-}
 .square img {
   display: block;
   max-width: 100%;
@@ -160,12 +135,12 @@ table tr {
   overflow: hidden;
   overflow-wrap: break-word;
 }
+.worth {
+  display: none;
+}
 #team {
   display: table;
   margin: 10px auto;
-}
-.worth {
-  display: none;
 }
 #team_ranks {
   display: none;
@@ -190,62 +165,6 @@ table tr {
   fill: #fff;
   cursor: pointer;
 }
-#editform {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  padding: 10px;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  background: #15151d;
-  box-shadow: 0 0 100px #000;
-}
-#editform .square {
-  width: 150px;
-  height: 150px;
-}
-#editform .square:hover {
-  transform: none;
-  cursor: default;
-}
-#editform .editarea {
-  display: flex;
-  flex-direction: column;
-  margin: 5px 5px 5px 10px;
-}
-#editform .editarea > * {
-  margin: 0 0 5px 0;
-}
-#editform .edit-buttons {
-  align-self: flex-end;
-  margin-top: auto;
-  margin-bottom: 0;
-}
-#importbox {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background: #15151d;
-  border: 1px solid #fff;
-  word-break: break-all;
-  box-shadow: 0 0 100px #000;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-#importbox .text-input {
-  margin-bottom: 10px;
-}
-#importbox .edit-buttons {
-  display: flex;
-  justify-content: right;
-}
 #infobox {
   position: fixed;
   top: 50%;
@@ -265,14 +184,6 @@ table tr {
 .hide:not(.unhide) {
   display: none !important;
 }
-input[type="text"],
-input[type="number"] {
-  width: 250px;
-  height: 25px;
-  padding: 0 5px;
-  border: none;
-  border-radius: 0;
-}
 button {
   border-radius: 0;
   border: 1px solid #fff;
@@ -282,10 +193,6 @@ button {
   background: #fff;
   color: #000;
   cursor: pointer;
-}
-.btn-cancel {
-  background: transparent;
-  color: #ccc;
 }
 .ranksContainer {
   display: inline-flex;
@@ -305,24 +212,6 @@ button {
 button:hover {
   background: #fff;
   color: #15151d;
-}
-.btn-green {
-  background: #008800;
-  color: #fff;
-}
-.btn-red {
-  background: #bb0000;
-  color: #fff;
-}
-#edit.edit {
-  background: #fff;
-  color: #15151d;
-}
-label {
-  width: 90px;
-  display: inline-block;
-  text-align: left;
-  height: 25px;
 }
 #screenshotbox {
   position: fixed;
@@ -345,7 +234,8 @@ canvas {
 }
 @media screen and (max-width: 1079px) {
   table {
-    margin: 0;
+    max-width: calc(100% - 22px);
+    margin: auto;
   }
   .ranksContainer {
     flex-direction: column;
@@ -354,5 +244,48 @@ canvas {
     margin: auto;
     flex-direction: row;
     width: auto;
+    margin: 10px auto;
+  }
+  .ranksButtons button {
+    margin: auto 10px;
+  }
+  #rank_info {
+    display: flex;
+    flex-direction: column;
+  }
+  #rank_info.bordered {
+    border: 1px solid;
+    border-color: #999;
+    border-style: dashed;
+    padding: 5px 10px;
+  }
+  #team {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 449px) {
+  html {
+    margin: 10px 0;
+  }
+  #heading {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  .ranksButtons {
+    flex-wrap: wrap;
+  }
+  .ranksButtons button {
+    margin: auto 5px;
+  }
+  #info {
+    margin-left: auto;
+  }
+  #screenshot {
+    margin-right: auto;
+  }
+  #rank_info.bordered {
+    margin: 10px auto 0;
+    flex: 0 0 150px;
+    text-align: center;
   }
 }
