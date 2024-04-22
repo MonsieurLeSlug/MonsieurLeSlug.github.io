@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mage League Team Rank Checker</title>
+    <meta name="description" content="Check whether your team qualifies for Mage League">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Mage League Team Rank Checker" />
+    <meta property="og:description" content="Check whether your team qualifies for Mage League" />
+    <meta property="og:url" content="https://monsieurleslug.github.io/rank-checker" />
+    <meta property="og:image" content="https://github.com/MonsieurLeSlug/MonsieurLeSlug.github.io/blob/main/Rank%20Checker/favicon.png?raw=true" />
+    <meta name="theme-color" content="#FF0000" data-react-helmet="true" />
+    <link rel="stylesheet" href="./Rank Checker/style.css">
+    <link rel="icon" type="image/x-icon" href="./Rank Checker/favicon.png">
+    <script src="./Rank Checker/script.js"></script>
+    <script src="./js/html2canvas.min.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+
+      <h1 id="heading">Mage League Team Rank Checker</h1>
+
+      <div class="ranksContainer">
+        <table id="ranks">
+          <tbody id="ranks_body">
+            <tr>
+              <td id="herald1" title="Herald 1: 0pts" class="square"><img src="./img/ranks/herald.png" class="img" alt="Herald 1 image"/><span class="text">⭐</span><span class="worth">0</span></td>
+              <td id="herald2" title="Herald 2: 0pts" class="square"><img src="./img/ranks/herald.png" class="img" alt="Herald 2 image"/><span class="text">⭐⭐</span><span class="worth">0</span></td>
+              <td id="herald3" title="Herald 3: 0pts" class="square"><img src="./img/ranks/herald.png" class="img" alt="Herald 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">0</span></td>
+              <td id="herald4" title="Herald 4: 0pts" class="square"><img src="./img/ranks/herald.png" class="img" alt="Herald 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">0</span></td>
+              <td id="herald5" title="Herald 5: 0pts" class="square"><img src="./img/ranks/herald.png" class="img" alt="Herald 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">0</span></td>
+            </tr>
+            <tr>
+              <td id="guardian1" title="Guardian 1: 1pt" class="square"><img src="./img/ranks/guardian.png" class="img" alt="Guardian 1 image"/><span class="text">⭐</span><span class="worth">1</span></td>
+              <td id="guardian2" title="Guardian 2: 1pt" class="square"><img src="./img/ranks/guardian.png" class="img" alt="Guardian 2 image"/><span class="text">⭐⭐</span><span class="worth">1</span></td>
+              <td id="guardian3" title="Guardian 3: 2pts" class="square"><img src="./img/ranks/guardian.png" class="img" alt="Guardian 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">2</span></td>
+              <td id="guardian4" title="Guardian 4: 2pts" class="square"><img src="./img/ranks/guardian.png" class="img" alt="Guardian 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">2</span></td>
+              <td id="guardian5" title="Guardian 5: 3pts" class="square"><img src="./img/ranks/guardian.png" class="img" alt="Guardian 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">3</span></td>
+            </tr>
+            <tr>
+              <td id="crusader1" title="Crusader 1: 3pts" class="square"><img src="./img/ranks/crusader.png" class="img" alt="Crusader 1 image"/><span class="text">⭐</span><span class="worth">3</span></td>
+              <td id="crusader2" title="Crusader 2: 4pts" class="square"><img src="./img/ranks/crusader.png" class="img" alt="Crusader 2 image"/><span class="text">⭐⭐</span><span class="worth">4</span></td>
+              <td id="crusader3" title="Crusader 3: 5pts" class="square"><img src="./img/ranks/crusader.png" class="img" alt="Crusader 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">5</span></td>
+              <td id="crusader4" title="Crusader 4: 6pts" class="square"><img src="./img/ranks/crusader.png" class="img" alt="Crusader 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">6</span></td>
+              <td id="crusader5" title="Crusader 5: 7pts" class="square"><img src="./img/ranks/crusader.png" class="img" alt="Crusader 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">7</span></td>
+            </tr>
+              <td id="archon1" title="Archon 1: 8pts" class="square"><img src="./img/ranks/archon.png" class="img" alt="Archon 1 image"/><span class="text">⭐</span><span class="worth">8</span></td>
+              <td id="archon2" title="Archon 2: 9pts" class="square"><img src="./img/ranks/archon.png" class="img" alt="Archon 2 image"/><span class="text">⭐⭐</span><span class="worth">9</span></td>
+              <td id="archon3" title="Archon 3: 10pts" class="square"><img src="./img/ranks/archon.png" class="img" alt="Archon 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">10</span></td>
+              <td id="archon4" title="Archon 4: 12pts" class="square"><img src="./img/ranks/archon.png" class="img" alt="Archon 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">12</span></td>
+              <td id="archon5" title="Archon 5: 14pts" class="square"><img src="./img/ranks/archon.png" class="img" alt="Archon 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">14</span></td>
+            </tr>
+            <tr>
+              <td id="legend1" title="Legend 1: 16pts" class="square"><img src="./img/ranks/legend.png" class="img" alt="Legend 1 image"/><span class="text">⭐</span><span class="worth">16</span></td>
+              <td id="legend2" title="Legend 2: 18pts" class="square"><img src="./img/ranks/legend.png" class="img" alt="Legend 2 image"/><span class="text">⭐⭐</span><span class="worth">18</span></td>
+              <td id="legend3" title="Legend 3: 20pts" class="square"><img src="./img/ranks/legend.png" class="img" alt="Legend 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">20</span></td>
+              <td id="legend4" title="Legend 4: 22pts" class="square"><img src="./img/ranks/legend.png" class="img" alt="Legend 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">22</span></td>
+              <td id="legend5" title="Legend 5: 25pts" class="square"><img src="./img/ranks/legend.png" class="img" alt="Legend 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">25</span></td>
+            </tr>
+            <tr>
+              <td id="ancient1" title="Ancient 1: 28pts" class="square"><img src="./img/ranks/ancient.png" class="img" alt="Ancient 1 image"/><span class="text">⭐</span><span class="worth">28</span></td>
+              <td id="ancient2" title="Ancient 2: 31pts" class="square"><img src="./img/ranks/ancient.png" class="img" alt="Ancient 2 image"/><span class="text">⭐⭐</span><span class="worth">31</span></td>
+              <td id="ancient3" title="Ancient 3: 34pts" class="square"><img src="./img/ranks/ancient.png" class="img" alt="Ancient 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">34</span></td>
+              <td id="ancient4" title="Ancient 4: 38pts" class="square"><img src="./img/ranks/ancient.png" class="img" alt="Ancient 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">38</span></td>
+              <td id="ancient5" title="Ancient 5: 42pts" class="square"><img src="./img/ranks/ancient.png" class="img" alt="Ancient 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">42</span></td>
+            </tr>
+            <tr>
+              <td id="divine1" title="Divine 1: 46pts" class="square"><img src="./img/ranks/divine.png" class="img" alt="Divine 1 image"/><span class="text">⭐</span><span class="worth">46</span></td>
+              <td id="divine2" title="Divine 2: 50pts" class="square"><img src="./img/ranks/divine.png" class="img" alt="Divine 2 image"/><span class="text">⭐⭐</span><span class="worth">50</span></td>
+              <td id="divine3" title="Divine 3: 55pts" class="square"><img src="./img/ranks/divine.png" class="img" alt="Divine 3 image"/><span class="text">⭐⭐⭐</span><span class="worth">55</span></td>
+              <td id="divine4" title="Divine 4: 60pts" class="square"><img src="./img/ranks/divine.png" class="img" alt="Divine 4 image"/><span class="text">⭐⭐⭐⭐</span><span class="worth">60</span></td>
+              <td id="divine5" title="Divine 5: 65pts" class="square"><img src="./img/ranks/divine.png" class="img" alt="Divine 5 image"/><span class="text">⭐⭐⭐⭐⭐</span><span class="worth">65</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="ranksButtons">
+          <button id="info">Info</button>
+          <button id="reset">Reset</button>
+          <button id="screenshot">Screenshot</button>
+          <div id="rank_info">
+            <span id="ri1" class="ri"></span>
+            <span id="ri2" class="ri"></span>
+            <span id="ri3" class="ri"></span>
+            <span id="ri4" class="ri"></span>
+            <span id="ri5" class="ri"></span>
+            <span id="ri_total" class="ri"></span>
+          </div>
+        </div>
+      </div>
+
+      <table id="team">
+        <tbody id="team_body">
+          <tr>
+            <td id="player1" class="square"><img src="./img/ranks/unranked.png" class="img" alt="Player 1 image"/><span class="text"></span></td>
+            <td id="player2" class="square"><img src="./img/ranks/unranked.png" class="img" alt="Player 2 image"/><span class="text"></span></td>
+            <td id="player3" class="square"><img src="./img/ranks/unranked.png" class="img" alt="Player 3 image"/><span class="text"></span></td>
+            <td id="player4" class="square"><img src="./img/ranks/unranked.png" class="img" alt="Player 4 image"/><span class="text"></span></td>
+            <td id="player5" class="square"><img src="./img/ranks/unranked.png" class="img" alt="Player 5 image"/><span class="text"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="team_ranks">
+        <span id="tr1" class="tr"></span>
+        <span id="tr2" class="tr"></span>
+        <span id="tr3" class="tr"></span>
+        <span id="tr4" class="tr"></span>
+        <span id="tr5" class="tr"></span>
+      </div>
+
+      <div id="antitamper" class="hide">
+        <svg id="closeall" height="40px" width="40px" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/></svg>
+      </div>
+      <div id="infobox" class="hide">
+        <span id="info">
+          Click the the medals to add them to your team. Click your team members to remove them.
+          <br/>Each rank is assigned a point value, which can be seen on hover. Points cannot total over 100.
+          <br/>Click the reset button to clear your team.
+          <br/>Click the screenshot button to make a copy-pastable image of your team.
+        </span>
+      </div>
+      <div id="screenshotbox" class="hide"></div>
+    </div>
+  </body>
+</html>
