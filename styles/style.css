@@ -137,6 +137,9 @@ body {
   -moz-transition: .2s;
   -ms-transition: .2s;
   -o-transition: .2s;
+  background: url(../img/background1080x1920.png);
+  background-size: 200%;
+  background-position: center 30%;
 }
 #menu .logo:hover img {
   transform: scale(1.05);
@@ -144,6 +147,7 @@ body {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
+  background-size: 115%;
 }
 #menu a {
   color: var(--black-light);
