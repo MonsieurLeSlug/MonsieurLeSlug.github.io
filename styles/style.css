@@ -478,9 +478,38 @@ canvas {
 .scheduleContainer > table:last-child {
   margin-bottom: 0;
 }
+.schedule_body {
+  position: relative;
+}
+.schedule_body .spoiler-toggle {
+  width: 30px;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  right: 4px;
+  cursor: pointer;
+  background: url(../img/icons/eye-closed.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.schedule_body .spoiler-toggle:hover {
+  background-image: url(../img/icons/eye-open.png);
+}
+.schedule_body.spoiled .spoiler-toggle {
+  background-image: url(../img/icons/eye-open.png);
+}
+.schedule_body.spoiled .spoiler-toggle:hover {
+  background-image: url(../img/icons/eye-closed.png);
+}
 table .schedule_body th {
   text-align: center;
   font-size: 20px;
+}
+.schedule_body:not(.spoiled) .spoiler {
+  display: none;
+}
+.schedule_body.spoiled .non-spoiler {
+  display: none;
 }
 .schedule_body .series-info {
   display: flex;

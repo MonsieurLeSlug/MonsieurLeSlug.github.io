@@ -13,12 +13,25 @@ function toggleDropdown(el) {
   dropdown.classList.toggle('unhide');
 }
 
+function toggleSpoiler(el) {
+  let spoiler = el.parentNode;
+  spoiler.classList.toggle('spoiled');
+}
+
 docReady(function() {
   let serie = document.getElementById('container').getElementsByClassName('series-info');
   for (i = 0; i < serie.length; i++) {
     var series = serie[i];
     series.onclick = function() {
       toggleDropdown(this);
+    }
+  }
+
+  let spoilerToggles = document.getElementById('container').getElementsByClassName('spoiler-toggle');
+  for (i = 0; i < spoilerToggles.length; i++) {
+    var spoilerToggle = spoilerToggles[i];
+    spoilerToggle.onclick = function() {
+      toggleSpoiler(this);
     }
   }
 })
