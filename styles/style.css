@@ -653,10 +653,10 @@ table .schedule_body th {
     flex: 0 0 150px;
     text-align: center;
   }
-  #standings_body th:nth-child(2),
   #standings_body th:nth-child(3),
-  #standings_body td:nth-child(2),
-  #standings_body td:nth-child(3)
+  #standings_body th:nth-child(4),
+  #standings_body td:nth-child(3),
+  #standings_body td:nth-child(4)
   {
     display: none;
   }

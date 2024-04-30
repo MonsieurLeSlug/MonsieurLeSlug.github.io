@@ -34,4 +34,10 @@ docReady(function() {
       toggleSpoiler(this);
     }
   }
+
+  let dropdowns = document.getElementsByClassName('dropdown');
+  for (i = 0; i < dropdowns.length; i++) {
+    var dropdown = dropdowns[i];
+    dropdown.parentNode.getElementsByClassName('series-info')[0].classList.add('has-dropdown');
+  }
 })
