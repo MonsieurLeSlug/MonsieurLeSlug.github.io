@@ -13,9 +13,8 @@ function toggleDropdown(el) {
   dropdown.classList.toggle('unhide');
 }
 
-function toggleSpoiler(el) {
-  let spoiler = el.parentNode;
-  spoiler.classList.toggle('spoiled');
+function toggleSpoilers(id) {
+  document.getElementById(id).classList.toggle('spoiled');
 }
 
 function populateResults() {
@@ -114,19 +113,25 @@ function populateResults() {
               <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
             </tr>`;
         } else {
+          let game3youtube = (seriesInfo.game2.youtube) ? `<a href="https://www.youtube.com/" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/>` : '';
+          let game3twitch = (seriesInfo.game2.twitch) ? `<a href="https://www.twitch.tv/" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
           tbody.innerHTML += `
             <tr class="non-spoiler game">
               <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 3</span></div></td>
-              <td class="youtube"><a href="https://www.youtube.com/" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a></td>
-              <td class="twitch"><a href="https://www.twitch.tv/" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a></td>
+              <td class="youtube">${game3youtube}</a></td>
+              <td class="twitch">${game3twitch}</td>
               <td class="dotabuff"><a href="https://www.dotabuff.com/" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
               <td class="opendota"><a href="https://www.opendota.com/" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
               <td class="stratz"><a href="https://www.stratz.com/" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
             </tr>`;
         }
+      } else {
+      seriesInfoDiv.innerHTML += `
+        <div class="spoiler team team1"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
+        <div class="spoiler score"> - </div>
+        <div class="spoiler team team2"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
       }
 
-      console.log(seriesInfoDiv);
       seriesDiv.appendChild(seriesInfoDiv);
       seriesDiv.appendChild(dropdownDiv);
     }
@@ -134,6 +139,35 @@ function populateResults() {
 }
 
 docReady(function() {
+  function offsetAnchor() {
+    if (location.hash.length !== 0) window.scrollTo(window.scrollX, window.scrollY - 100);
+  }
+  const jump = document.getElementById('jump');
+  jump.addEventListener('click', function() { window.setTimeout(offsetAnchor, 0); });
+  window.setTimeout(offsetAnchor, 0);
+
+  // Change #jump anchor based on current week
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth()+1;
+  const day = date.getDate();
+  // This is horrible and needs to be changed but I'm tired as hell
+  if (year > 2024 || month > 6 || (month === 6 && day > 2)) {
+    jump.setAttribute('href', '#week7');
+  } else if (month === 6 || (month === 5 && day > 26)) {
+    jump.setAttribute('href', '#week6');
+  } else if (month === 5 && day > 19) {
+    jump.setAttribute('href', '#week5');
+  } else if (month === 5 && day > 12) {
+    jump.setAttribute('href', '#week4');
+  } else if (month === 5 && day > 5) {
+    jump.setAttribute('href', '#week3');
+  } else if (month == 5 || (month === 4 && day > 28)) {
+    jump.setAttribute('href', '#week2');
+  } else if (month === 4 && day > 6) {
+    jump.setAttribute('href', '#week1');
+  }
+
   setTimeout(function() { // Wait for populateResults()
     let serie = document.getElementById('container').getElementsByClassName('series-info has-dropdown');
     for (i = 0; i < serie.length; i++) {
@@ -144,13 +178,8 @@ docReady(function() {
     }
   }, 100);
 
-  let spoilerToggles = document.getElementById('container').getElementsByClassName('spoiler-toggle');
-  for (i = 0; i < spoilerToggles.length; i++) {
-    var spoilerToggle = spoilerToggles[i];
-    spoilerToggle.onclick = function() {
-      toggleSpoiler(this);
-    }
-  }
+  let spoilerToggle = document.getElementById('spoiler_toggle');
+  spoilerToggle.onclick = function() { toggleSpoilers('schedule'); }
 
   populateResults();
 });

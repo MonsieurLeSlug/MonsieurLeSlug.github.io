@@ -423,6 +423,10 @@ button:hover {
   color: var(--white);
   text-shadow: 1px 1px 1px var(--black-light-half);
 }
+button a {
+  color: inherit;
+  text-decoration: inherit;
+}
 .ranksContainer {
   display: inline-flex;
 }
@@ -472,6 +476,11 @@ canvas {
   font-weight: bold;
 }
 
+#schedule_buttons {
+  position: fixed;
+  width: 140px;
+  right: calc(50% - 516px/2 - 140px);
+}
 .scheduleContainer > table {
   margin-bottom: 20px;
 }
@@ -495,20 +504,20 @@ canvas {
 .schedule_body .spoiler-toggle:hover {
   background-image: url(../img/icons/eye-open.png);
 }
-.schedule_body.spoiled .spoiler-toggle {
+#schedule.spoiled .schedule_body .spoiler-toggle {
   background-image: url(../img/icons/eye-open.png);
 }
-.schedule_body.spoiled .spoiler-toggle:hover {
+#schedule.spoiled .schedule_body .spoiler-toggle:hover {
   background-image: url(../img/icons/eye-closed.png);
 }
 table .schedule_body th {
   text-align: center;
   font-size: 20px;
 }
-.schedule_body:not(.spoiled) .spoiler {
+#schedule:not(.spoiled) .schedule_body .spoiler {
   display: none;
 }
-.schedule_body.spoiled .non-spoiler {
+#schedule.spoiled .schedule_body .non-spoiler {
   display: none;
 }
 .schedule_body .series-info {
@@ -625,6 +634,14 @@ table .schedule_body th {
 @media screen and (max-width: 1023px) {
   html {
     background-size: cover;
+  }
+}
+@media screen and (max-width: 768px) {
+  #schedule_buttons {
+    position: relative;
+    width: auto;
+    right: auto;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 449px) {
