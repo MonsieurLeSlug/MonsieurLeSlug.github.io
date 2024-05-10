@@ -181,7 +181,7 @@ teams = {
     'logo': './img/teams/100/5 Dicks 1 Urinal.png'
   },
   'aTeam': {
-    'name': 'aTeam',
+    'name': 'a Team',
     'logo': './img/teams/100/a Team.png'
   },
   'Spuds': {
@@ -277,18 +277,74 @@ results = {
     'series1': {
       'team1': 'BB',
       'team2': 'WUT',
+      'winner': 'WUT',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'WUT',
+        'gameID': '7723286837',
+        'youtube': 'https://youtu.be/l98Xd27Bc2Q?t=31',
+        'twitch': 'https://www.twitch.tv/videos/2138320857?t=00h02m13s',
+      },
+      'game2': {
+        'winner': 'WUT',
+        'gameID': '7723352028',
+        'youtube': 'https://youtu.be/l98Xd27Bc2Q?t=4730',
+        'twitch': 'https://www.twitch.tv/videos/2138320857?t=01h09m25s',
+      }
     },
     'series2': {
       'team1': 'aTeam',
       'team2': 'Mages',
+      'winner': 'Mages',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'Mages',
+        'gameID': '7719593138',
+        'youtube': 'https://youtu.be/9XKzhu7u7bY?t=217',
+        'twitch': 'https://www.twitch.tv/videos/2136662682?t=00h03m36s',
+      },
+      'game2': {
+        'winner': 'Mages',
+        'gameID': '7719626738',
+        'youtube': 'https://youtu.be/9XKzhu7u7bY?t=3088',
+        'twitch': 'https://www.twitch.tv/videos/2136662682?t=00h51m28s',
+      }
     },
     'series3': {
       'team1': '5D1U',
       'team2': 'Spuds',
+      'winner': 'Spuds',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'Spuds',
+        'gameID': '7721462586',
+        'twitch': 'https://www.twitch.tv/videos/2137502845?t=00h04m08s',
+      },
+      'game2': {
+        'winner': 'Spuds',
+        'gameID': '7721514979',
+        'twitch': 'https://www.twitch.tv/videos/2137502845?t=01h10m54s',
+      }
     },
     'series4': {
       'team1': 'AP',
       'team2': 'CC',
+      'winner': 'CC',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'CC',
+        'gameID': '7728068369',
+        'twitch': 'https://www.twitch.tv/videos/2140925675?t=00h00m13s',
+      },
+      'game2': {
+        'winner': 'CC',
+        'gameID': '7728099726',
+        'twitch': 'https://www.twitch.tv/videos/2140925675?t=00h51m53s',
+      }
     }
   },
   'week3': {
@@ -303,6 +359,19 @@ results = {
     'series3': {
       'team1': 'Mages',
       'team2': '5D1U',
+      'winner': 'Mages',
+      'scoreTeam1': '2',
+      'scoreTeam2': '0',
+      'game1': {
+        'winner': 'Mages',
+        'gameID': '7727946890',
+        'twitch': 'https://www.twitch.tv/videos/2140806377?t=00h01m00s',
+      },
+      'game2': {
+        'winner': 'Mages',
+        'gameID': '7728006481',
+        'twitch': 'https://www.twitch.tv/videos/2140806377?t=01h05m13s',
+      }
     },
     'series4': {
       'team1': 'aTeam',
