@@ -380,10 +380,41 @@ results = {
     'series1': {
       'team1': 'Spuds',
       'team2': 'BB',
+      'winner': 'Spuds',
+      'scoreTeam1': '2',
+      'scoreTeam2': '1',
+      'game1': {
+        'winner': 'Spuds',
+        'gameID': '7734885358',
+        'twitch': 'https://www.twitch.tv/videos/2144186979?t=00h00m42s',
+      },
+      'game2': {
+        'winner': 'BB',
+        'gameID': '7734973546',
+        'twitch': 'https://www.twitch.tv/videos/2144186979?t=01h18m21s',
+      },
+      'game3': {
+        'winner': 'Spuds',
+        'gameID': '7735031797',
+        'twitch': 'https://www.twitch.tv/videos/2144186979?t=02h26m55s',
+      }
     },
     'series2': {
       'team1': 'CC',
       'team2': 'WUT',
+      'winner': 'WUT',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'WUT',
+        'gameID': '7733261906',
+        'twitch': 'https://www.twitch.tv/videos/2143501255?t=00h00m46s',
+      },
+      'game2': {
+        'winner': 'WUT',
+        'gameID': '7733312797',
+        'twitch': 'https://www.twitch.tv/videos/2143501255?t=01h13m09s',
+      }
     },
     'series3': {
       'team1': 'Mages',
@@ -405,6 +436,24 @@ results = {
     'series4': {
       'team1': 'aTeam',
       'team2': 'AP',
+      'winner': 'AP',
+      'scoreTeam1': '1',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'aTeam',
+        'gameID': '7733290548',
+        'twitch': 'https://www.twitch.tv/videos/2143522623?t=00h11m27s',
+      },
+      'game2': {
+        'winner': 'AP',
+        'gameID': '7733349889',
+        'twitch': 'https://www.twitch.tv/videos/2143522623?t=01h30m37s',
+      },
+      'game3': {
+        'winner': 'AP',
+        'gameID': '7733395981',
+        'twitch': 'https://www.twitch.tv/videos/2143522623?t=02h25m05s',
+      }
     }
   },
   'week4': {
