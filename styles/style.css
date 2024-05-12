@@ -625,6 +625,75 @@ table .schedule_body th {
   padding-left: 5px;
 }
 
+.teamsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teamsContainer .team {
+  background: var(--yellow);
+  padding: 30px 40px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px var(--grey-dark);
+  display: inline-block;
+  width: 720px;
+  margin-bottom: 20px;
+}
+.teamsContainer .team .team-name {
+  display: block;
+  color: var(--white);
+  text-shadow: 1px 1px 1px var(--grey-dark);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.teamsContainer .team .team-inner {
+  display: flex;
+  color: var(--black-light);
+  text-shadow: 1px 1px 1px var(--grey-dark-half);
+  justify-content: space-around;
+  align-items: center;
+}
+.teamsContainer .team .team-logo {
+  width: 200px;
+  height: 200px;
+  margin-right: 45px;
+}
+.teamsContainer .team .team-info {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.teamsContainer .team .players {
+  display: block;
+  text-align: left;
+}
+.teamsContainer .team .playerTitle {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.team .player {
+  display: inline-flex;
+  margin-right: 10px;
+}
+.team .player .name {
+  line-height: 38px;
+}
+.team .medal {
+  width: 40px;
+  margin-right: 5px;
+}
+.team .standins {
+  margin: 10px 0;
+}
+.team .points {
+  margin-top: auto;
+  font-size: 18px;
+}
+
 @media screen and (max-width: 1079px) {
   .page-rank-checker table {
     max-width: calc(100% - 22px);
