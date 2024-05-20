@@ -41,95 +41,104 @@ function populateResults() {
         <div class="non-spoiler team team2"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
 
       if (seriesInfo.winner) {
-        seriesInfoDiv.classList.add('has-dropdown');
-        let team1win = (seriesInfo.team1 == seriesInfo.winner) ? 'winner' : '';
-        let team2win = (seriesInfo.team2 == seriesInfo.winner) ? 'winner' : '';
-        seriesInfoDiv.innerHTML += `
-          <div class="spoiler team team1 ${team1win}"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
-          <div class="spoiler score">${seriesInfo.scoreTeam1} - ${seriesInfo.scoreTeam2}</div>
-          <div class="spoiler team team2 ${team2win}"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
-
-        let game1winner = teams[seriesInfo.game1.winner];
-        let game2winner = teams[seriesInfo.game2.winner];
-        let game1youtube = (seriesInfo.game1.youtube) ? `<a href="${seriesInfo.game1.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
-        let game1twitch = (seriesInfo.game1.twitch) ? `<a href="${seriesInfo.game1.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
-        let game2youtube = (seriesInfo.game2.youtube) ? `<a href="${seriesInfo.game2.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
-        let game2twitch = (seriesInfo.game2.twitch) ? `<a href="${seriesInfo.game2.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
-
-        tbody.innerHTML += `
-          <tr class="non-spoiler game game1">
-            <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 1</span></div></td>
-            <td class="youtube">${game1youtube}</td>
-            <td class="twitch">${game1twitch}</td>
-            <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-            <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-            <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-          </tr>
-          <tr class="spoiler game game1">
-            <td class="whowon"><div class="team"><img src="${game1winner.logo}" alt="${game1winner.name} logo"/><span class="team-name">${game1winner.name} victory</span></div></td>
-            <td class="youtube">${game1youtube}</td>
-            <td class="twitch">${game1twitch}</td>
-            <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-            <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-            <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-          </tr>
-          <tr class="non-spoiler game game2">
-            <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 2</span></div></td>
-            <td class="youtube">${game2youtube}</td>
-            <td class="twitch">${game2twitch}</td>
-            <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-            <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-            <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-          </tr>
-          <tr class="spoiler game game2">
-            <td class="whowon"><div class="team"><img src="${game2winner.logo}" alt="${game2winner.name} logo"/><span class="team-name">${game2winner.name} victory</span></div></td>
-            <td class="youtube">${game2youtube}</td>
-            <td class="twitch">${game2twitch}</td>
-            <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-            <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-            <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-          </tr>`;
-
-        if (seriesInfo.game3) {
-          let game3winner = teams[seriesInfo.game3.winner];
-          let game3youtube = (seriesInfo.game3.youtube) ? `<a href="${seriesInfo.game3.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
-          let game3twitch = (seriesInfo.game3.twitch) ? `<a href="${seriesInfo.game3.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
-
-          tbody.innerHTML += `
-            <tr class="non-spoiler game game3">
-              <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 3</span></div></td>
-              <td class="youtube">${game3youtube}</td>
-              <td class="twitch">${game3twitch}</td>
-              <td class="dotabuff"><a href="https://www.dotabuff.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-              <td class="opendota"><a href="https://www.opendota.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-              <td class="stratz"><a href="https://www.stratz.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-            </tr>
-            <tr class="spoiler game game3">
-              <td class="whowon"><div class="team"><img src="${game3winner.logo}" alt="${game3winner.name} logo"/><span class="team-name">${game3winner.name} victory</span></div></td>
-              <td class="youtube">${game3youtube}</td>
-              <td class="twitch">${game3twitch}</td>
-              <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-              <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-              <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
-            </tr>`;
+        if (!seriesInfo.game1) { // Forfeit
+          let team1win = (seriesInfo.team1 == seriesInfo.winner) ? 'winner' : '';
+          let team2win = (seriesInfo.team2 == seriesInfo.winner) ? 'winner' : '';
+          seriesInfoDiv.innerHTML += `
+            <div class="spoiler team team1 ${team1win}"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
+            <div class="spoiler score">${seriesInfo.scoreTeam1} - ${seriesInfo.scoreTeam2}</div>
+            <div class="spoiler team team2 ${team2win}"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
         } else {
-          let game3youtube = (seriesInfo.game2.youtube) ? `<a href="https://www.youtube.com/" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/>` : '';
-          let game3twitch = (seriesInfo.game2.twitch) ? `<a href="https://www.twitch.tv/" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
+          seriesInfoDiv.classList.add('has-dropdown');
+          let team1win = (seriesInfo.team1 == seriesInfo.winner) ? 'winner' : '';
+          let team2win = (seriesInfo.team2 == seriesInfo.winner) ? 'winner' : '';
+          seriesInfoDiv.innerHTML += `
+            <div class="spoiler team team1 ${team1win}"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
+            <div class="spoiler score">${seriesInfo.scoreTeam1} - ${seriesInfo.scoreTeam2}</div>
+            <div class="spoiler team team2 ${team2win}"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
+
+          let game1winner = teams[seriesInfo.game1.winner];
+          let game2winner = teams[seriesInfo.game2.winner];
+          let game1youtube = (seriesInfo.game1.youtube) ? `<a href="${seriesInfo.game1.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
+          let game1twitch = (seriesInfo.game1.twitch) ? `<a href="${seriesInfo.game1.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
+          let game2youtube = (seriesInfo.game2.youtube) ? `<a href="${seriesInfo.game2.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
+          let game2twitch = (seriesInfo.game2.twitch) ? `<a href="${seriesInfo.game2.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
+
           tbody.innerHTML += `
-            <tr class="non-spoiler game">
-              <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 3</span></div></td>
-              <td class="youtube">${game3youtube}</a></td>
-              <td class="twitch">${game3twitch}</td>
-              <td class="dotabuff"><a href="https://www.dotabuff.com/" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
-              <td class="opendota"><a href="https://www.opendota.com/" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
-              <td class="stratz"><a href="https://www.stratz.com/" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+            <tr class="non-spoiler game game1">
+              <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 1</span></div></td>
+              <td class="youtube">${game1youtube}</td>
+              <td class="twitch">${game1twitch}</td>
+              <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+              <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+              <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+            </tr>
+            <tr class="spoiler game game1">
+              <td class="whowon"><div class="team"><img src="${game1winner.logo}" alt="${game1winner.name} logo"/><span class="team-name">${game1winner.name} victory</span></div></td>
+              <td class="youtube">${game1youtube}</td>
+              <td class="twitch">${game1twitch}</td>
+              <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+              <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+              <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game1.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+            </tr>
+            <tr class="non-spoiler game game2">
+              <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 2</span></div></td>
+              <td class="youtube">${game2youtube}</td>
+              <td class="twitch">${game2twitch}</td>
+              <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+              <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+              <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+            </tr>
+            <tr class="spoiler game game2">
+              <td class="whowon"><div class="team"><img src="${game2winner.logo}" alt="${game2winner.name} logo"/><span class="team-name">${game2winner.name} victory</span></div></td>
+              <td class="youtube">${game2youtube}</td>
+              <td class="twitch">${game2twitch}</td>
+              <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+              <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+              <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game2.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
             </tr>`;
+
+          if (seriesInfo.game3) {
+            let game3winner = teams[seriesInfo.game3.winner];
+            let game3youtube = (seriesInfo.game3.youtube) ? `<a href="${seriesInfo.game3.youtube}" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/></a>` : '';
+            let game3twitch = (seriesInfo.game3.twitch) ? `<a href="${seriesInfo.game3.twitch}" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
+
+            tbody.innerHTML += `
+              <tr class="non-spoiler game game3">
+                <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 3</span></div></td>
+                <td class="youtube">${game3youtube}</td>
+                <td class="twitch">${game3twitch}</td>
+                <td class="dotabuff"><a href="https://www.dotabuff.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+                <td class="opendota"><a href="https://www.opendota.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+                <td class="stratz"><a href="https://www.stratz.com/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+              </tr>
+              <tr class="spoiler game game3">
+                <td class="whowon"><div class="team"><img src="${game3winner.logo}" alt="${game3winner.name} logo"/><span class="team-name">${game3winner.name} victory</span></div></td>
+                <td class="youtube">${game3youtube}</td>
+                <td class="twitch">${game3twitch}</td>
+                <td class="dotabuff"><a href="https://www.dotabuff.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+                <td class="opendota"><a href="https://www.opendota.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+                <td class="stratz"><a href="https://www.stratz.com/matches/${seriesInfo.game3.gameID}" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+              </tr>`;
+          } else {
+            let game3youtube = (seriesInfo.game2.youtube) ? `<a href="https://www.youtube.com/" target="_blank"><img src="./img/icons/youtube.png" alt="YouTube logo"/>` : '';
+            let game3twitch = (seriesInfo.game2.twitch) ? `<a href="https://www.twitch.tv/" target="_blank"><img src="./img/icons/twitch.png" alt="Twitch logo"/></a>` : '';
+            tbody.innerHTML += `
+              <tr class="non-spoiler game">
+                <td class="whowon"><div class="team"><img src="./img/icons/dota.png" alt="Dota 2 logo"/><span class="team-name">Game 3</span></div></td>
+                <td class="youtube">${game3youtube}</a></td>
+                <td class="twitch">${game3twitch}</td>
+                <td class="dotabuff"><a href="https://www.dotabuff.com/" target="_blank"><img src="./img/icons/dotabuff.png" alt="Dotabuff logo"/></a></td>
+                <td class="opendota"><a href="https://www.opendota.com/" target="_blank"><img src="./img/icons/opendota.png" alt="Opendota logo"/></a></td>
+                <td class="stratz"><a href="https://www.stratz.com/" target="_blank"><img src="./img/icons/stratz.png" alt="Stratz logo"/></a></td>
+              </tr>`;
+          }
         }
       } else {
-      seriesInfoDiv.innerHTML += `
-        <div class="spoiler team team1"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
-        <div class="spoiler score"> - </div>
-        <div class="spoiler team team2"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
+        seriesInfoDiv.innerHTML += `
+          <div class="spoiler team team1"><img src="${team1.logo}" alt="${team1.name} logo"/><span class="team-name">${team1.name}</span></div>
+          <div class="spoiler score"> - </div>
+          <div class="spoiler team team2"><span class="team-name">${team2.name}</span><img src="${team2.logo}" alt="${team2.name} logo"/></div>`;
       }
 
       seriesDiv.appendChild(seriesInfoDiv);
@@ -460,14 +469,31 @@ results = {
     'series1': {
       'team1': '5D1U',
       'team2': 'BB',
+      'winner': 'BB',
+      'scoreTeam1': 'FF',
+      'scoreTeam2': '2',
     },
     'series2': {
       'team1': 'WUT',
       'team2': 'aTeam',
+      'winner': 'WUT',
+      'scoreTeam1': '2',
+      'scoreTeam2': 'FF',
     },
     'series3': {
       'team1': 'Spuds',
       'team2': 'CC',
+      'winner': 'Spuds',
+      'scoreTeam1': '2',
+      'scoreTeam2': '0',
+      'game1': {
+        'winner': 'Spuds',
+        'gameID': '7745864701',
+      },
+      'game2': {
+        'winner': 'Spuds',
+        'gameID': '7745982139',
+      },
     },
     'series4': {
       'team1': 'AP',
@@ -486,10 +512,16 @@ results = {
     'series3': {
       'team1': '5D1U',
       'team2': 'CC',
+      'winner': 'CC',
+      'scoreTeam1': 'FF',
+      'scoreTeam2': '2',
     },
     'series4': {
       'team1': 'aTeam',
       'team2': 'Spuds',
+      'winner': 'Spuds',
+      'scoreTeam1': 'FF',
+      'scoreTeam2': '2',
     }
   },
   'week6': {
