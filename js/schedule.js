@@ -498,6 +498,17 @@ results = {
     'series4': {
       'team1': 'AP',
       'team2': 'Mages',
+      'winner': 'Mages',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'Mages',
+        'gameID': '7749059816',
+      },
+      'game2': {
+        'winner': 'Mages',
+        'gameID': '7749091489',
+      },
     }
   },
   'week5': {
