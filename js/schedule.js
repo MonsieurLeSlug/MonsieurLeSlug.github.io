@@ -515,10 +515,40 @@ results = {
     'series1': {
       'team1': 'Mages',
       'team2': 'BB',
+      'winner': 'Mages',
+      'scoreTeam1': '2',
+      'scoreTeam2': '1',
+      'game1': {
+        'winner': 'Mages',
+        'gameID': '7750581075',
+      },
+      'game2': {
+        'winner': 'BB',
+        'gameID': '7750621578',
+      },
+      'game3': {
+        'winner': 'Mages',
+        'gameID': '7750665891',
+      },
     },
     'series2': {
       'team1': 'AP',
       'team2': 'WUT',
+      'winner': 'AP',
+      'scoreTeam1': '2',
+      'scoreTeam2': '1',
+      'game1': {
+        'winner': 'AP',
+        'gameID': '7759264783',
+      },
+      'game2': {
+        'winner': 'WUT',
+        'gameID': '7759420827',
+      },
+      'game3': {
+        'winner': 'AP',
+        'gameID': '7759562880',
+      },
     },
     'series3': {
       'team1': '5D1U',
