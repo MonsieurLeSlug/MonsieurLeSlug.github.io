@@ -569,6 +569,9 @@ results = {
     'series1': {
       'team1': 'aTeam',
       'team2': '5D1U',
+      'winner': 'FF',
+      'scoreTeam1': 'FF',
+      'scoreTeam2': 'FF',
     },
     'series2': {
       'team1': 'WUT',
@@ -592,16 +595,37 @@ results = {
     'series4': {
       'team1': 'Spuds',
       'team2': 'AP',
+      'winner': 'AP',
+      'scoreTeam1': '1',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'AP',
+        'gameID': '7776058939',
+      },
+      'game2': {
+        'winner': 'Spuds',
+        'gameID': '7776101873',
+      },
+      'game3': {
+        'winner': 'AP',
+        'gameID': '7776166406',
+      },
     }
   },
   'week7': {
     'series1': {
       'team1': 'BB',
       'team2': 'aTeam',
+      'winner': 'BB',
+      'scoreTeam1': '2',
+      'scoreTeam2': 'FF',
     },
     'series2': {
       'team1': 'AP',
       'team2': '5D1U',
+      'winner': 'AP',
+      'scoreTeam1': '2',
+      'scoreTeam2': 'FF',
     },
     'series3': {
       'team1': 'Mages',
