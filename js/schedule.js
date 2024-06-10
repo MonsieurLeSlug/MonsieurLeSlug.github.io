@@ -591,6 +591,21 @@ results = {
     'series3': {
       'team1': 'CC',
       'team2': 'BB',
+      'winner': 'CC',
+      'scoreTeam1': '2',
+      'scoreTeam2': '1',
+      'game1': {
+        'winner': 'CC',
+        'gameID': '7783443898',
+      },
+      'game2': {
+        'winner': 'BB',
+        'gameID': '7783502994',
+      },
+      'game3': {
+        'winner': 'CC',
+        'gameID': '7783590045',
+      },
     },
     'series4': {
       'team1': 'Spuds',
@@ -634,6 +649,17 @@ results = {
     'series4': {
       'team1': 'WUT',
       'team2': 'Spuds',
+      'winner': 'WUT',
+      'scoreTeam1': '2',
+      'scoreTeam2': '0',
+      'game1': {
+        'winner': 'WUT',
+        'gameID': '7787425025',
+      },
+      'game2': {
+        'winner': 'WUT',
+        'gameID': '7787480083',
+      },
     }
   }
 }
