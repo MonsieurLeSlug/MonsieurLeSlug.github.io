@@ -645,6 +645,17 @@ results = {
     'series3': {
       'team1': 'Mages',
       'team2': 'CC',
+      'winner': 'CC',
+      'scoreTeam1': '0',
+      'scoreTeam2': '2',
+      'game1': {
+        'winner': 'CC',
+        'gameID': '7796211500',
+      },
+      'game2': {
+        'winner': 'CC',
+        'gameID': '7796284385',
+      },
     },
     'series4': {
       'team1': 'WUT',
